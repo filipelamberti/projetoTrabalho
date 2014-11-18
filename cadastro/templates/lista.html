@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+	<h1>Lista de Clientes</h1>
+
+			<table>
+					<tr>
+						<th>Nome</th>
+						<th>CPF</th>
+						<th>Idade</th>
+						<th>Email</th>
+						<th>Telefone</th>
+						<th>Criado em</th>
+					</tr>
+				
+				{% for inscricao in page_obj %}
+					<tr>
+						<td>{{ inscricao.nome }}</td>
+						<td>{{ inscricao.cpf }}</td>
+						<td>{{ inscricao.idade }}</td>
+						<td>{{ inscricao.email }}</td>
+						<td>{{ inscricao.telefone }}</td>
+						<td>{{ inscricao.criado_em|date:"d/m/Y" }}</td>
+					</tr>
+				{% empty %}
+					<p>Sem itens na lista.</p>
+				{% endfor %}
+			
+			</table>
+
+
+{% endblock content %}
