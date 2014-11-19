@@ -3,7 +3,9 @@
 {% block content %}
 	<h1>Lista de Clientes</h1>
 
-			<table>
+		<div>
+			<table class="table">
+				<thead>
 					<tr>
 						<th>Nome</th>
 						<th>CPF</th>
@@ -12,7 +14,8 @@
 						<th>Telefone</th>
 						<th>Criado em</th>
 					</tr>
-				
+				</thead>
+				<tbody>
 				{% for inscricao in page_obj %}
 					<tr>
 						<td>{{ inscricao.nome }}</td>
@@ -25,8 +28,13 @@
 				{% empty %}
 					<p>Sem itens na lista.</p>
 				{% endfor %}
-			
+				</tbody>
 			</table>
+		</div>
 
+	    <hr>
+
+<!-- pagination -->
+{% include "_pagination.html" %}
 
 {% endblock content %}
