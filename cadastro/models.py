@@ -2,6 +2,7 @@
 from django.db import models
 
 
+
 class Inscricao(models.Model):
     nome = models.CharField(max_length=100)
     cpf = models.CharField('CPF', max_length=11, unique=True)
