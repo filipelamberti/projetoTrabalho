@@ -1,18 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<h1>Lista de Clientes</h1>
+ {% load i18n %}
+	<h1>{% trans "Lista de Clientes" %}</h1>
 
 		<div>
 			<table class="table">
 				<thead>
 					<tr>
-						<th>Nome</th>
-						<th>CPF</th>
-						<th>Idade</th>
-						<th>Email</th>
-						<th>Telefone</th>
-						<th>Criado em</th>
+						<th>{% trans "Nome" %}</th>
+						<th>{% trans "CPF" %}</th>
+						<th>{% trans "Idade" %}</th>
+						<th>{% trans "Email" %}</th>
+						<th>{% trans "Telefone" %}</th>
+						<th>{% trans "Criado em" %}</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -26,7 +27,7 @@
 						<td>{{ inscricao.criado_em|date:"d/m/Y" }}</td>
 					</tr>
 				{% empty %}
-					<p>Sem itens na lista.</p>
+					<p>{% trans "Sem itens na lista." %}</p>
 				{% endfor %}
 				</tbody>
 			</table>

@@ -2,8 +2,11 @@
 #import os
 #BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 #usando Unipath
-from unipath import Path
-BASE_DIR = Path(__file__).parent
+#from unipath import Path
+import os 
+
+#BASE_DIR = Path(__file__).parent
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
 # Quick-start development settings - unsuitable for production
@@ -39,6 +42,8 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
 )
 
 ROOT_URLCONF = 'projetoTrabalho.urls'
@@ -52,8 +57,8 @@ WSGI_APPLICATION = 'projetoTrabalho.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        'NAME' : BASE_DIR.child('db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'NAME' : BASE_DIR.child('db.sqlite3'),
     }
 }
 
@@ -61,6 +66,15 @@ DATABASES = {
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
 LANGUAGE_CODE = 'pt-br'
+
+LANGUAGE = (
+    ('pt-br', 'Brasil'),
+    ('en', 'EUA'),
+)
+
+LOCALE_PATHS = (
+    os.path.join(BASE_DIR, 'locale'),
+)
 
 TIME_ZONE = 'UTC'
 

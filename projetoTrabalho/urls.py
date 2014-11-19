@@ -11,4 +11,5 @@ urlpatterns = patterns(
     url(r'^cadastro/$', Criar.as_view(), name='cadastro'),
     url(r'^lista/$', Listar.as_view(), name='lista'),
     url(r'^admin/', include(admin.site.urls)),
+    url(r'^i18n/', include('django.conf.urls.i18n')),
 )

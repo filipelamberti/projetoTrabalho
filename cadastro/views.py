@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from django.views.generic import CreateView, ListView
 from django.core.urlresolvers import reverse_lazy
 from django.core.paginator import Paginator
+from django.utils.translation import ugettext_lazy as _
 
 from cadastro.models import Inscricao
 from cadastro.forms import InscricaoForm

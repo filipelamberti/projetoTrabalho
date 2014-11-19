@@ -1,6 +1,22 @@
 {% extends 'base.html' %}
 
 {% block content %}
-      <h1> Cadastro de Clientes </h1>
-      <p> Trabalho Programação para Internet II</p>
+ {% load i18n %}
+      <h1>{% trans "Cadastro de Clientes" %}</h1>
+      <p>{% trans "Trabalho Programação para Internet II" %}</p>
+     <a href="#" onclick="document.setLangEnglish.submit();return false;"><img src="https://cdn2.iconfinder.com/data/icons/fatcow/32x32/flag_usa.png" title="English"></a> <a href="#" onclick="document.setLangPortugues.submit();return false;"><img src="https://cdn2.iconfinder.com/data/icons/fatcow/32x32/flag_brazil.png" title="Portugues"/></a>
+    <form name="setLangEnglish" action="/i18n/setlang/" method="POST">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+        <input type="hidden" name="language" value="en" />
+    </form>
+
+ 
+    <form name="setLangPortugues" action="/i18n/setlang/" method="POST">
+        {% csrf_token %}
+        <input name="next" type="hidden" value="/" />
+        <input type="hidden" name="language" value="pt-br" />
+    </form>
+
+    <br/>
 {% endblock content %}
