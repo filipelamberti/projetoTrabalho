@@ -1,4 +1,4 @@
-in
+bin
 build
 include
 lib
@@ -7,12 +7,7 @@ man
 share
 Scripts
 .Python
-*.pyc
 *~
-*.sqlite3
 .DS_Store
-.env
-crm/staticfiles
-
-.db
 *.sqlite3
+*.pyc
