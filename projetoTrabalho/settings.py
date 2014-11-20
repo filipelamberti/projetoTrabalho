@@ -2,10 +2,10 @@
 #import os
 #BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 #usando Unipath
-#from unipath import Path
+from unipath import Path
 import os 
 
-#BASE_DIR = Path(__file__).parent
+BASE_DIR = Path(__file__).parent
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
