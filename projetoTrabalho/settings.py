@@ -2,11 +2,17 @@
 #import os
 #BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 #usando Unipath
+from dj_database_url import parse as db_url
+from decouple import config
 from unipath import Path
 import os 
 
 BASE_DIR = Path(__file__).parent
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+
+STATIC_ROOT = 'staticfiles'
+
+ALLOWED_HOSTS = [*]
 
 
 # Quick-start development settings - unsuitable for production
@@ -55,13 +61,15 @@ WSGI_APPLICATION = 'projetoTrabalho.wsgi.application'
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-        #'NAME' : BASE_DIR.child('db.sqlite3'),
-    }
+    'default': config(
+        'DATABASE_URL',
+        default='sqlite://'+ BASE_DIR.child('db.sqlite3'),
+        cast=db_url),
 }
 
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
 
